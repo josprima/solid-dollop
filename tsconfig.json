@@ -16,13 +16,16 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"]
     }
   },
   "include": [
     "next-env.d.ts",
     "tailwind.config.js",
     "postcss.config.js",
+    "next.config.js",
     "**/*.ts",
     "**/*.tsx"
   ],
