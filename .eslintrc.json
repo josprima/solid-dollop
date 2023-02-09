@@ -12,6 +12,7 @@
     "operator-linebreak": "off",
     "no-restricted-exports": "off",
     "import/prefer-default-export": "off",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "off",
+    "implicit-arrow-linebreak": "off"
   }
 }
