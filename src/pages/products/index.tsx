@@ -9,7 +9,7 @@ import { ProductResponseType, ProductType } from './ProductInterfaces';
 
 const LIMIT_PER_PAGE = 10;
 
-export default function Home() {
+export default function ProductPage() {
   const [products, setProducts] = useState<ProductType[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
