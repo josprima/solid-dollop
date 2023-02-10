@@ -1,8 +1,11 @@
+import { Button } from '@components/button';
+import { CartDetailInfo } from '@components/cart-detail-info';
+import { ProductsTable } from '@components/products-table';
 import axios from 'axios';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
+import { FiChevronLeft } from 'react-icons/fi';
 import { ProductType } from '../products/ProductInterfaces';
 import { CartType, UserType } from './CartInterfaces';
 
@@ -81,56 +84,30 @@ function CartDetailPage() {
         <title>{`Cart Detail ${cartId || ''} | usedeall-ecommerce`}</title>
       </Head>
 
-      <div>
-        <Link href="/carts">Back</Link>
+      <div className="px-10 py-12 w-full h-full flex flex-col">
+        <Button href="/carts" icon={<FiChevronLeft />} text="Back" />
 
-        <h1>{`Cart ${cartDetail?.id}`}</h1>
+        <h1 className="text-3xl font-bold text-gray-700 border-b border-gray-200 py-4 mb-4">{`Cart ${cartDetail?.id}`}</h1>
 
-        <div>
-          <h2>Details</h2>
+        <h2 className="text-lg font-semibold mb-1">Details</h2>
 
-          <div>
-            <span>
-              User:
-              {`${userData?.firstName} ${userData?.lastName}`}
-            </span>
-            <span>
-              Total:
-              {cartDetail?.total}
-            </span>
-            <span>
-              Total Products:
-              {cartDetail?.totalProducts}
-            </span>
-            <span>
-              Total Quantity:
-              {cartDetail?.totalQuantity}
-            </span>
-          </div>
+        <div className="border rounded-md bg-violet-200 px-4 py-6 mb-6 grid grid-cols-2 gap-2">
+          <CartDetailInfo
+            label="User"
+            value={`${userData?.firstName} ${userData?.lastName}`}
+          />
+          <CartDetailInfo label="Total" value={cartDetail?.total} />
+          <CartDetailInfo
+            label="Total Products"
+            value={cartDetail?.totalProducts}
+          />
+          <CartDetailInfo
+            label="Total Quantity"
+            value={cartDetail?.totalQuantity}
+          />
         </div>
 
-        <table className="table-auto">
-          <thead>
-            <tr>
-              <th>Product Name</th>
-              <th>Brand</th>
-              <th>Price</th>
-              <th>Stock</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product.id}>
-                <td>{product.title}</td>
-                <td>{product.brand}</td>
-                <td>{product.price}</td>
-                <td>{product.stock}</td>
-                <td>{product.category}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <ProductsTable products={products} />
       </div>
     </>
   );

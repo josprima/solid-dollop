@@ -1,7 +1,7 @@
+import { Button } from '@components/button';
 import Pagination from '@components/pagination';
 import useGetCarts from '@hooks/get-carts';
 import Head from 'next/head';
-import Link from 'next/link';
 import { useState } from 'react';
 import { FiExternalLink } from 'react-icons/fi';
 
@@ -52,14 +52,13 @@ export default function CartPage() {
                     <td className="p-3 text-center">{cart.discountedTotal}</td>
                     <td className="p-3 text-center">{cart.totalProducts}</td>
                     <td className="p-3 text-center">{cart.totalQuantity}</td>
-                    <td className="p-3 text-center">
-                      <Link
+                    <td className="p-3 flex justify-center">
+                      <Button
                         href={`/carts/${cart.id}`}
-                        className="flex items-center justify-center text-blue-500 hover:text-blue-400 gap-2"
-                      >
-                        <span>Detail</span>
-                        <FiExternalLink />
-                      </Link>
+                        text="Detail"
+                        icon={<FiExternalLink />}
+                        iconPosition="right"
+                      />
                     </td>
                   </tr>
                 ))}
