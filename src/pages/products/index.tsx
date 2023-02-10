@@ -6,8 +6,6 @@ import useGetProducts from '@hooks/get-products';
 import Head from 'next/head';
 import { useState } from 'react';
 
-const LIMIT_PER_PAGE = 10;
-
 const initialCriteria = {
   category: '',
 };
