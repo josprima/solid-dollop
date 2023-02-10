@@ -3,4 +3,5 @@ export default interface PaginationProps {
   totalPage: number;
   onPrevClick: () => void;
   onNextClick: () => void;
+  isLoading?: boolean;
 }
