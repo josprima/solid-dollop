@@ -6,8 +6,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FiChevronLeft } from 'react-icons/fi';
-import { ProductType } from '../products/ProductInterfaces';
-import { CartType, UserType } from './CartInterfaces';
+import { ProductType } from '../../interfaces/ProductInterfaces';
+import { CartType, UserType } from '../../interfaces/CartInterfaces';
 
 function CartDetailPage() {
   const [cartDetail, setCartDetail] = useState<CartType>();

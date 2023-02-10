@@ -3,7 +3,7 @@ import { BASE_PATH } from '@constants/common';
 import {
   ProductResponseType,
   ProductType,
-} from 'src/pages/products/ProductInterfaces';
+} from 'src/interfaces/ProductInterfaces';
 import axios from 'axios';
 import debounce from 'lodash.debounce';
 

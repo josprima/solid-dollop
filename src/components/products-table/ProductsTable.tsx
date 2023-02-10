@@ -1,4 +1,4 @@
-import { ProductType } from 'src/pages/products/ProductInterfaces';
+import { ProductType } from 'src/interfaces/ProductInterfaces';
 
 function ProductsTable({ products }: { products: ProductType[] }) {
   return (

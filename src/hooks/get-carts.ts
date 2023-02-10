@@ -1,7 +1,7 @@
 import { BASE_PATH } from '@constants/common';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { CartResponseType, CartType } from 'src/pages/carts/CartInterfaces';
+import { CartResponseType, CartType } from 'src/interfaces/CartInterfaces';
 
 const LIMIT_PER_PAGE = 10;
 

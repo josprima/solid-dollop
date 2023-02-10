@@ -1,4 +1,4 @@
-import { ProductType } from '../products/ProductInterfaces';
+import { ProductType } from './ProductInterfaces';
 
 export interface UserType {
   id: number;
