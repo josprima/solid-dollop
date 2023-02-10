@@ -1,6 +1,8 @@
+import { SCREEN_WIDTH } from '@constants/common';
+
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FiMenu } from 'react-icons/fi';
 
 const menus = [
@@ -15,12 +17,16 @@ const menus = [
 ];
 
 function SideBar() {
-  const [isOpen, setIsOpen] = useState(true);
   const { pathname } = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggleSideBar = () => {
     setIsOpen(!isOpen);
   };
+
+  useEffect(() => {
+    setIsOpen(document.body.clientWidth > SCREEN_WIDTH.laptop);
+  }, []);
 
   return (
     <div

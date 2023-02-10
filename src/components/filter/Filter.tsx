@@ -82,7 +82,7 @@ function Filter({ onChange, criteria }: FilterProps) {
         style={{ height: `${filterHeight}px` }}
       >
         <div className="p-4 bg-gray-50 rounded-b-md" ref={filterRef}>
-          <div className="grid grid-cols-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
             <SelectInput
               options={createOptions(categories)}
               id="product-category-select"

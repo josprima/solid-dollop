@@ -84,7 +84,7 @@ function CartDetailPage() {
         <title>{`Cart Detail ${cartId || ''} | usedeall-ecommerce`}</title>
       </Head>
 
-      <div className="px-10 py-12 w-full h-full flex flex-col">
+      <div className="px-4 lg:px-10 pt-12 pb-4 lg:pb-10 w-full h-full flex flex-col">
         <Button href="/carts" icon={<FiChevronLeft />} text="Back" />
 
         <h1 className="text-3xl font-bold text-gray-700 border-b border-gray-200 py-4 mb-4">{`Cart ${cartDetail?.id}`}</h1>
@@ -107,7 +107,9 @@ function CartDetailPage() {
           />
         </div>
 
-        <ProductsTable products={products} />
+        <div className="overflow-y-auto">
+          <ProductsTable products={products} />
+        </div>
       </div>
     </>
   );

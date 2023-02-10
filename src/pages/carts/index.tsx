@@ -23,14 +23,14 @@ export default function CartPage() {
         <title>Carts | usedeall-ecommerce</title>
       </Head>
 
-      <div className="px-10 py-12 w-full h-full flex flex-col">
+      <div className="px-4 lg:px-10 pt-12 pb-4 lg:pb-10 w-full h-full flex flex-col">
         <div className="border-b border-gray-200 py-4 mb-4">
           <h1 className="text-3xl font-bold text-gray-700">Cart List</h1>
         </div>
 
-        <div className="flex flex-col flex-grow mt-4">
+        <div className="flex flex-col flex-grow mt-4 overflow-y-auto">
           <div className="flex-1">
-            <table className="table-auto w-full border">
+            <table className="table-auto w-full border min-w-max">
               <thead>
                 <tr className="bg-gray-500 text-white">
                   <th className="p-4 uppercase">User ID</th>

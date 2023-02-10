@@ -42,8 +42,8 @@ export default function ProductPage() {
         <title>Products | usedeall-ecommerce</title>
       </Head>
 
-      <div className="px-10 py-12 w-full h-full flex flex-col">
-        <div className="flex justify-between items-center border-b border-gray-200 py-4 mb-4">
+      <div className="px-4 lg:px-10 pt-12 pb-4 lg:pb-10 w-full h-full flex flex-col">
+        <div className="flex flex-col md:justify-between md:items-center md:flex-row border-b border-gray-200 py-4 mb-4">
           <h1 className="text-3xl font-bold text-gray-700">Product List</h1>
 
           <TextInput
@@ -58,7 +58,7 @@ export default function ProductPage() {
 
         <Filter onChange={handleOnFilter} criteria={criteria} />
 
-        <div className="flex flex-col flex-grow mt-4">
+        <div className="flex flex-col flex-grow mt-4 overflow-y-auto">
           <div className="flex-1">
             <ProductsTable products={products} />
           </div>

@@ -2,7 +2,7 @@ import { ProductType } from 'src/pages/products/ProductInterfaces';
 
 function ProductsTable({ products }: { products: ProductType[] }) {
   return (
-    <table className="table-auto w-full border">
+    <table className="table-auto w-full border min-w-max">
       <thead>
         <tr className="bg-gray-500 text-white">
           <th className="p-4 uppercase">Product Name</th>
