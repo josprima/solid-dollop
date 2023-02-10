@@ -59,22 +59,29 @@ function Filter({ onChange, criteria, setCriteria }: FilterProps) {
           isOpen ? 'rounded-t-md' : 'rounded-md'
         }`}
       >
-        <span className="font-medium text-base text-gray-700">
-          {`${isOpen ? 'Close' : 'Open'} filter`}
-        </span>
+        <span className="font-medium text-base text-gray-700">Filter</span>
 
-        <FiChevronDown
-          className={`text-gray-700 text-2xl transition-all ${
-            isOpen ? 'rotate-180' : 'rotate-0'
-          }`}
-        />
+        <div className="flex items-center gap-3">
+          <span className="text-sm font-semibold">
+            {`${isOpen ? 'Close' : 'Open'} Filter`}
+          </span>
+
+          <FiChevronDown
+            className={`text-gray-700 text-2xl transition-all ${
+              isOpen ? 'rotate-180' : 'rotate-0'
+            }`}
+          />
+        </div>
       </button>
 
       <div
         className="overflow-hidden transition-all"
         style={{ height: `${filterHeight}px` }}
       >
-        <div className="p-4 bg-gray-50 rounded-b-md" ref={filterRef}>
+        <div
+          className="p-4 bg-gray-50 rounded-b-md grid grid-cols-4"
+          ref={filterRef}
+        >
           <SelectInput
             options={createOptions(categories)}
             id="product-category-select"
@@ -82,7 +89,6 @@ function Filter({ onChange, criteria, setCriteria }: FilterProps) {
             name="category"
             onChange={handleInputChange}
             value={criteria.category}
-            className="max-w-md"
           />
         </div>
       </div>
