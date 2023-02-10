@@ -13,7 +13,7 @@ function Pagination({
         type="button"
         onClick={onPrevClick}
         disabled={currentPage <= 1 || isLoading}
-        className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-400 text-white rounded-sm disabled:bg-slate-300"
+        className="px-4 py-2 text-sm bg-blue-500 hover:bg-blue-400 text-white rounded-sm disabled:bg-slate-300 disabled:cursor-not-allowed"
       >
         Prev
       </button>

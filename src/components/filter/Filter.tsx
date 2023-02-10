@@ -2,10 +2,10 @@ import { SelectInput } from '@components/select-input';
 import createOptions from '@utils/create-options';
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
-import { FiChevronDown } from 'react-icons/fi';
+import { FiChevronDown, FiTrash2 } from 'react-icons/fi';
 import FilterProps from './Filter.interface';
 
-function Filter({ onChange, criteria, setCriteria }: FilterProps) {
+function Filter({ onChange, criteria }: FilterProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [categories, setCategories] = useState([]);
   const [filterHeight, setFilterHeight] = useState(0);
@@ -30,8 +30,11 @@ function Filter({ onChange, criteria, setCriteria }: FilterProps) {
       [e.target.name]: e.target.value,
     };
 
-    setCriteria(newCriteria);
     onChange(newCriteria);
+  };
+
+  const handleOnResetFilter = () => {
+    onChange({});
   };
 
   const toggleFilter = () => {
@@ -78,18 +81,28 @@ function Filter({ onChange, criteria, setCriteria }: FilterProps) {
         className="overflow-hidden transition-all"
         style={{ height: `${filterHeight}px` }}
       >
-        <div
-          className="p-4 bg-gray-50 rounded-b-md grid grid-cols-4"
-          ref={filterRef}
-        >
-          <SelectInput
-            options={createOptions(categories)}
-            id="product-category-select"
-            label="Category"
-            name="category"
-            onChange={handleInputChange}
-            value={criteria.category}
-          />
+        <div className="p-4 bg-gray-50 rounded-b-md" ref={filterRef}>
+          <div className="grid grid-cols-3">
+            <SelectInput
+              options={createOptions(categories)}
+              id="product-category-select"
+              label="Category"
+              name="category"
+              onChange={handleInputChange}
+              value={criteria?.category || ''}
+            />
+          </div>
+
+          <div className="border-t pt-4 mt-4 border-gray-300 flex justify-end">
+            <button
+              type="button"
+              onClick={handleOnResetFilter}
+              className="px-4 py-2 border border-blue-500 rounded-md text-blue-500 flex gap-2 items-center"
+            >
+              <FiTrash2 />
+              <span>Reset Filter</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>

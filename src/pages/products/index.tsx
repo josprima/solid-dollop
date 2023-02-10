@@ -7,14 +7,10 @@ import useGetProducts from '@hooks/get-products';
 import Head from 'next/head';
 import { useState } from 'react';
 
-const initialCriteria = {
-  category: '',
-};
-
 export default function ProductPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchValue, setSearchValue] = useState('');
-  const [criteria, setCriteria] = useState(initialCriteria);
+  const [criteria, setCriteria] = useState<CriteriaType>({});
 
   const { isLoading, products, totalPage } = useGetProducts({
     page: currentPage,
@@ -32,7 +28,7 @@ export default function ProductPage() {
 
   const handleChangeSearchValue = (e: any) => {
     setSearchValue(e.target.value);
-    setCriteria(initialCriteria);
+    setCriteria({});
   };
 
   const handleOnFilter = (newCriteria: CriteriaType) => {
@@ -60,11 +56,7 @@ export default function ProductPage() {
           />
         </div>
 
-        <Filter
-          onChange={handleOnFilter}
-          criteria={criteria}
-          setCriteria={setCriteria}
-        />
+        <Filter onChange={handleOnFilter} criteria={criteria} />
 
         <div className="flex flex-col flex-grow mt-4">
           <div className="flex-1">
